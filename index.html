@@ -198,6 +198,51 @@ footer{background:var(--cafe);color:#D9C6BB;font-size:.85rem;padding:28px 0 100p
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
 footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
 
+
+/* Faixa de pratos */
+.ticker{background:var(--cafe);color:var(--manteiga);overflow:hidden;white-space:nowrap;padding:12px 0;font-family:var(--display);font-weight:800;font-size:1rem}
+.ticker .trilha{display:inline-block;animation:corre 38s linear infinite}
+.ticker span{margin:0 14px}.ticker i{font-style:normal;color:var(--mostarda)}
+@keyframes corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Selos flutuando na foto do topo */
+.hero__midia{position:relative;align-self:end;justify-self:center;width:min(440px,100%)}
+.hero__midia .hero__foto{width:100%}
+.flut{position:absolute;background:var(--branco);color:var(--cafe);border-radius:16px;padding:10px 14px;box-shadow:0 12px 30px -10px rgba(43,27,20,.45);
+  font-size:.85rem;line-height:1.2;display:flex;gap:10px;align-items:center;animation:boia 4s ease-in-out infinite}
+.flut b{font-family:var(--display);font-size:1.05rem;display:block}
+.flut .ic{width:34px;height:34px;border-radius:50%;background:var(--manteiga);display:grid;place-items:center;font-size:1.1rem}
+.flut.f1{left:-6px;top:22%}.flut.f2{right:-6px;top:52%;animation-delay:-2s}
+@keyframes boia{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* Sorteador */
+.sorteio{padding:20px 0 64px;background:var(--branco)}
+.sorteio .caixa{background:var(--laranja);border-radius:var(--r-lg);padding:28px 22px;color:var(--branco);position:relative;overflow:hidden;max-width:720px;margin-inline:auto}
+.sorteio .caixa::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#F08A50;right:-90px;top:-110px}
+.sorteio h2{font-size:clamp(1.7rem,6vw,2.4rem);position:relative;z-index:1}
+.sorteio .lead{color:#FFF0E6;margin-top:8px;position:relative;z-index:1}
+.cartao{position:relative;z-index:1;margin-top:20px;background:var(--branco);color:var(--cafe);border-radius:20px;padding:20px;min-height:178px}
+.cartao.gira{animation:gira .5s ease}
+@keyframes gira{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.cartao .cat{display:inline-block;background:var(--manteiga);color:var(--laranja);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+.cartao .nome{font-family:var(--display);font-weight:800;font-size:1.6rem;line-height:1.1;margin-top:10px}
+.cartao .num{color:var(--cafe-2);font-size:.85rem;margin-top:4px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pills span{border:1px solid var(--linha);border-radius:999px;padding:6px 12px;font-size:.9rem}
+.pills b{color:var(--tomate)}
+.sorteio .btn{position:relative;z-index:1;margin-top:18px;max-width:none}
+.sorteio .nota{color:#FFE2CF;position:relative;z-index:1;text-align:center}
+/* Antes e depois */
+.compara{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.compara div{border-radius:var(--r-md);padding:16px}
+.compara .a{background:#F4EDE7;color:var(--cafe-2)}
+.compara .d{background:var(--cafe);color:var(--branco)}
+.compara small{display:block;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.compara b{display:block;font-family:var(--display);font-size:2.4rem;line-height:1;margin-top:6px}
+.compara p{font-size:.92rem;margin-top:6px;color:inherit}
+/* Aparecer ao rolar */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ticker .trilha,.flut{animation:none}.rv{opacity:1;transform:none}}
+
 /* Barra fixa no celular */
 .barra{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--branco);border-top:1px solid var(--linha);
   padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:14px;align-items:center;
@@ -223,9 +268,14 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
         <p class="nota">A partir de R$ 9,90. E-book em PDF que chega no seu e-mail e no seu WhatsApp logo após a compra.</p>
       </div>
     </div>
-    <img class="hero__foto" src="assets/lara-ebook.webp" width="900" height="1125" alt="Lara segurando o e-book 120 Receitas na Airfryer, com frango empanado, batata rústica e bolo de cenoura na bancada" fetchpriority="high">
+    <div class="hero__midia">
+      <img class="hero__foto" src="assets/lara-ebook.webp" width="900" height="1125" alt="Lara segurando o e-book 120 Receitas na Airfryer, com frango empanado, batata rústica e bolo de cenoura na bancada" fetchpriority="high">
+      <div class="flut f1" aria-hidden="true"><span class="ic">🌡️</span><span>Temperatura<b>em cada receita</b></span></div>
+      <div class="flut f2" aria-hidden="true"><span class="ic">⏱️</span><span>Tempo certinho<b>sem chute</b></span></div>
+    </div>
   </div>
 </header>
+<div class="ticker" aria-hidden="true"><div class="trilha"><span><i>●</i> Pão de queijo</span><span><i>●</i> Frango empanado</span><span><i>●</i> Rocambole recheado</span><span><i>●</i> Batata rústica</span><span><i>●</i> Bolo de cenoura</span><span><i>●</i> Pizza de Rap10</span><span><i>●</i> Coxinha da asa</span><span><i>●</i> Tilápia empanada</span><span><i>●</i> Pastel de forno</span><span><i>●</i> Ovos de forminha</span><span><i>●</i> Picanha em tiras</span><span><i>●</i> Banana com canela</span><span><i>●</i> Pão de queijo</span><span><i>●</i> Frango empanado</span><span><i>●</i> Rocambole recheado</span><span><i>●</i> Batata rústica</span><span><i>●</i> Bolo de cenoura</span><span><i>●</i> Pizza de Rap10</span><span><i>●</i> Coxinha da asa</span><span><i>●</i> Tilápia empanada</span><span><i>●</i> Pastel de forno</span><span><i>●</i> Ovos de forminha</span><span><i>●</i> Picanha em tiras</span><span><i>●</i> Banana com canela</span></div></div>
 
 <main>
   <section class="historia" aria-labelledby="t-historia">
@@ -235,7 +285,25 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
       <p>Você olha para ela em cima da pia e pensa: <b>batata de novo?</b></p>
       <p>Ela custou caro, ocupa espaço na bancada e faz muito mais do que isso. O problema nunca foi a airfryer. É que ninguém tem tempo de assistir a um vídeo de 15 minutos para descobrir o que fazer no jantar de hoje.</p>
       <p class="virada">Por isso a gente juntou as receitas que mais funcionam na airfryer num lugar só. Cada uma cabe numa página: você bate o olho nos ingredientes, vê a temperatura e o tempo e coloca na cesta.</p>
+      <div class="compara rv"><div class="a"><small>Hoje</small><b>3</b><p>batata, frango e pão de queijo, de novo</p></div><div class="d"><small>Com o e-book</small><b>120</b><p>receitas com temperatura e tempo</p></div></div>
       <p>Pão de queijo no café. Frango empanado no almoço. Rocambole no jantar. Bolo de cenoura no fim de semana. <b>Sem ligar o forno e sem sujar um monte de louça.</b></p>
+    </div>
+  </section>
+
+  <section class="sorteio" aria-labelledby="t-sorteio">
+    <div class="wrap">
+      <div class="caixa rv">
+        <h2 id="t-sorteio">Não sabe o que fazer hoje? A Lara escolhe.</h2>
+        <p class="lead">Toque no botão e veja uma das 120 receitas do e-book, com temperatura e tempo.</p>
+        <div class="cartao" id="cartao" aria-live="polite">
+          <span class="cat" id="sCat">Frango</span>
+          <div class="nome" id="sNome">Frango empanado crocante</div>
+          <div class="num" id="sNum">Receita nº 016 do e-book</div>
+          <div class="pills"><span>🌡️ <b id="sTemp">200 °C</b></span><span>⏱️ <b id="sTempo">15 a 18 min</b></span><span>🍽️ <b id="sRend">4 porções</b></span></div>
+        </div>
+        <button type="button" class="btn btn--claro" id="sortear">Sortear outra receita</button>
+        <p class="nota">Ingredientes e modo de preparo de cada uma estão no e-book.</p>
+      </div>
     </div>
   </section>
 
@@ -256,7 +324,7 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
       <span class="olho">O que tem no e-book</span>
       <h2 id="t-dentro">Uma receita nova para cada refeição do seu dia</h2>
       <p class="lead">Cada receita ocupa uma página, com ingredientes, modo de preparo, rendimento, temperatura e tempo. No sumário, é só tocar no nome para ir direto até ela.</p>
-      <ul class="cats">
+      <ul class="cats rv">
         <li>Café da manhã <b>15</b></li>
         <li>Frango <b>20</b></li>
         <li>Carnes <b>15</b></li>
@@ -272,7 +340,7 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
   <section class="paginas" aria-labelledby="t-paginas">
     <div class="wrap">
       <h3 id="t-paginas">Veja como são as páginas por dentro</h3>
-      <div class="trilho">
+      <div class="trilho rv">
         <figure><img src="assets/pagina-frango.webp" loading="lazy" width="744" height="652" alt="Página da receita de frango empanado crocante"><figcaption>Frango empanado crocante, 200 °C por 15 a 18 minutos</figcaption></figure>
         <figure><img src="assets/pagina-batata.webp" loading="lazy" width="744" height="652" alt="Página da receita de batata rústica"><figcaption>Batata rústica, 200 °C por 20 a 25 minutos</figcaption></figure>
         <figure><img src="assets/pagina-bolo.webp" loading="lazy" width="744" height="652" alt="Página da receita de bolo de cenoura com cobertura"><figcaption>Bolo de cenoura com cobertura, 160 °C por 25 a 30 minutos</figcaption></figure>
@@ -300,7 +368,7 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
       <span class="olho">Só no Kit Completo</span>
       <h2 id="t-bonus">O e-book e mais 3 bônus para o mês inteiro</h2>
       <p class="lead">O Kit Completo traz as 120 receitas e mais três materiais para você decidir o que fazer, comprar o que precisa e acertar o ponto.</p>
-      <div class="bgrade">
+      <div class="bgrade rv">
         <article class="bcard">
           <img src="assets/capa-videos.webp" loading="lazy" width="357" height="505" alt="Capa do bônus Receitas dos Vídeos">
           <div><small>BÔNUS 1</small><h3>Receitas dos Vídeos</h3><p>Os 8 pratos que aparecem nos nossos vídeos, passo a passo: rocambole de frango, ovos com atum gratinados, pizza de Rap10, quiche e mais.</p></div>
@@ -323,7 +391,7 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
       <h2 id="t-ofertas">Comece hoje, com o que você tem em casa</h2>
       <p class="lead">O Básico traz as 120 receitas. O Kit Completo traz as receitas dos vídeos, o cardápio do mês e a tabela para deixar do lado da airfryer.</p>
 
-      <div class="planos">
+      <div class="planos rv">
         <article class="plano">
           <div class="plano__topo">
             <img src="assets/capa-120.webp" loading="lazy" width="357" height="505" alt="Capa do e-book 120 Receitas na Airfryer">
@@ -355,7 +423,7 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
         </article>
       </div>
 
-      <div class="garantia">
+      <div class="garantia rv">
         <div class="icone">7<br><small style="font-size:.6rem">DIAS</small></div>
         <p><b>Garantia de 7 dias.</b> Se não gostar, é só pedir o reembolso em até 7 dias após a compra e você recebe o valor de volta.</p>
       </div>
@@ -515,6 +583,31 @@ footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
   new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { carregar(); tocar(); } else { v.pause(); } });
   }, { threshold: 0.35 }).observe(v);
+})();
+</script>
+<script>
+window.RECEITAS = [{"n": "001", "t": "Pão de queijo caseiro", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "15 a 18 min", "rend": "20 unidades"}, {"n": "002", "t": "Ovo cozido na airfryer", "c": "Café Da Manhã", "temp": "160 °C", "tempo": "12 a 15 min", "rend": "4 ovos"}, {"n": "003", "t": "Omelete de forminha", "c": "Café Da Manhã", "temp": "170 °C", "tempo": "10 a 12 min", "rend": "2 porções"}, {"n": "004", "t": "Pão amanhecido crocante", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "3 a 4 min", "rend": "2 pães"}, {"n": "005", "t": "Misto quente", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "6 a 8 min", "rend": "2 sanduíches"}, {"n": "006", "t": "Crepioca recheada", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "1 porção"}, {"n": "007", "t": "Banana assada com canela", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "2 porções"}, {"n": "008", "t": "Muffin de banana e aveia", "c": "Café Da Manhã", "temp": "160 °C", "tempo": "15 a 18 min", "rend": "6 unidades"}, {"n": "009", "t": "Bolinho de chuva assado", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "10 a 12 min", "rend": "15 unidades"}, {"n": "010", "t": "Rabanada de café da manhã", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "8 fatias"}, {"n": "011", "t": "Ovo assado com bacon", "c": "Café Da Manhã", "temp": "170 °C", "tempo": "8 a 10 min", "rend": "2 porções"}, {"n": "012", "t": "Pãozinho de iogurte", "c": "Café Da Manhã", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "6 unidades"}, {"n": "013", "t": "Granola caseira", "c": "Café Da Manhã", "temp": "150 °C", "tempo": "10 a 12 min", "rend": "2 xícaras"}, {"n": "014", "t": "Cookie de banana e aveia", "c": "Café Da Manhã", "temp": "170 °C", "tempo": "10 a 12 min", "rend": "10 unidades"}, {"n": "015", "t": "Queijo coalho com melado", "c": "Café Da Manhã", "temp": "200 °C", "tempo": "8 a 10 min", "rend": "4 espetos"}, {"n": "016", "t": "Frango empanado crocante", "c": "Frango", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "4 porções"}, {"n": "017", "t": "Coxinha da asa temperada", "c": "Frango", "temp": "200 °C", "tempo": "25 a 30 min", "rend": "4 porções"}, {"n": "018", "t": "Sobrecoxa assada com páprica", "c": "Frango", "temp": "200 °C", "tempo": "25 a 30 min", "rend": "4 porções"}, {"n": "019", "t": "Filé de peito grelhado", "c": "Frango", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "4 filés"}, {"n": "020", "t": "Coxa e sobrecoxa com limão e alho", "c": "Frango", "temp": "200 °C", "tempo": "30 a 35 min", "rend": "4 porções"}, {"n": "021", "t": "Nuggets caseiros", "c": "Frango", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "25 unidades"}, {"n": "022", "t": "Frango a passarinho", "c": "Frango", "temp": "200 °C", "tempo": "20 a 25 min", "rend": "4 porções"}, {"n": "023", "t": "Asinha ao barbecue", "c": "Frango", "temp": "200 °C", "tempo": "28 min", "rend": "4 porções"}, {"n": "024", "t": "Rolê de frango com presunto e queijo", "c": "Frango", "temp": "190 °C", "tempo": "20 a 22 min", "rend": "4 rolês"}, {"n": "025", "t": "Frango à parmegiana", "c": "Frango", "temp": "200 °C", "tempo": "17 min", "rend": "4 porções"}, {"n": "026", "t": "Frango com batata", "c": "Frango", "temp": "200 °C", "tempo": "30 min", "rend": "3 porções"}, {"n": "027", "t": "Espetinho de frango ao curry", "c": "Frango", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "6 espetos"}, {"n": "028", "t": "Espetinho de frango com legumes", "c": "Frango", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "6 espetos"}, {"n": "029", "t": "Frango com mostarda e mel", "c": "Frango", "temp": "200 °C", "tempo": "18 a 22 min", "rend": "4 porções"}, {"n": "030", "t": "Almôndegas de frango", "c": "Frango", "temp": "190 °C", "tempo": "12 a 15 min", "rend": "20 unidades"}, {"n": "031", "t": "Hambúrguer de frango", "c": "Frango", "temp": "190 °C", "tempo": "12 a 14 min", "rend": "4 unidades"}, {"n": "032", "t": "Tulipa de frango ao alho", "c": "Frango", "temp": "200 °C", "tempo": "20 a 25 min", "rend": "4 porções"}, {"n": "033", "t": "Frango empanado com flocos de milho", "c": "Frango", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "4 porções"}, {"n": "034", "t": "Filé de frango com crosta de parmesão", "c": "Frango", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "4 filés"}, {"n": "035", "t": "Frango desfiado assado", "c": "Frango", "temp": "190 °C", "tempo": "18 a 20 min", "rend": "500 g"}, {"n": "036", "t": "Picanha em tiras", "c": "Carnes", "temp": "200 °C", "tempo": "10 a 15 min", "rend": "3 porções"}, {"n": "037", "t": "Linguiça toscana", "c": "Carnes", "temp": "200 °C", "tempo": "15 a 20 min", "rend": "4 porções"}, {"n": "038", "t": "Costelinha suína ao barbecue", "c": "Carnes", "temp": "180 °C", "tempo": "40 a 45 min", "rend": "4 porções"}, {"n": "039", "t": "Bife de contrafilé", "c": "Carnes", "temp": "200 °C", "tempo": "8 a 10 min", "rend": "2 bifes"}, {"n": "040", "t": "Kafta", "c": "Carnes", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "8 unidades"}, {"n": "041", "t": "Hambúrguer caseiro", "c": "Carnes", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "4 unidades"}, {"n": "042", "t": "Almôndegas ao sugo", "c": "Carnes", "temp": "190 °C", "tempo": "17 min", "rend": "20 unidades"}, {"n": "043", "t": "Medalhão de lombo suíno", "c": "Carnes", "temp": "190 °C", "tempo": "20 a 25 min", "rend": "4 porções"}, {"n": "044", "t": "Bisteca suína", "c": "Carnes", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "4 bistecas"}, {"n": "045", "t": "Panceta crocante", "c": "Carnes", "temp": "200 °C", "tempo": "25 a 30 min", "rend": "4 porções"}, {"n": "046", "t": "Pimentão recheado com carne", "c": "Carnes", "temp": "180 °C", "tempo": "18 a 20 min", "rend": "4 metades"}, {"n": "047", "t": "Fraldinha inteira", "c": "Carnes", "temp": "200 °C", "tempo": "15 a 20 min", "rend": "4 porções"}, {"n": "048", "t": "Espetinho de carne", "c": "Carnes", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "6 espetos"}, {"n": "049", "t": "Carne de sol acebolada", "c": "Carnes", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "3 porções"}, {"n": "050", "t": "Bolo de carne", "c": "Carnes", "temp": "180 °C", "tempo": "30 a 35 min", "rend": "6 porções"}, {"n": "051", "t": "Tilápia empanada", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "4 filés"}, {"n": "052", "t": "Salmão com limão e ervas", "c": "Peixes E Frutos Do Mar", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "2 postas"}, {"n": "053", "t": "Merluza com crosta de ervas", "c": "Peixes E Frutos Do Mar", "temp": "190 °C", "tempo": "12 a 15 min", "rend": "4 filés"}, {"n": "054", "t": "Camarão alho e óleo", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "6 a 8 min", "rend": "2 porções"}, {"n": "055", "t": "Bolinho de bacalhau assado", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "20 unidades"}, {"n": "056", "t": "Isca de peixe", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "4 porções"}, {"n": "057", "t": "Sardinha assada", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "4 porções"}, {"n": "058", "t": "Tilápia com legumes no papelote", "c": "Peixes E Frutos Do Mar", "temp": "180 °C", "tempo": "15 a 18 min", "rend": "2 porções"}, {"n": "059", "t": "Camarão empanado", "c": "Peixes E Frutos Do Mar", "temp": "200 °C", "tempo": "8 a 10 min", "rend": "2 porções"}, {"n": "060", "t": "Bolinho de atum", "c": "Peixes E Frutos Do Mar", "temp": "190 °C", "tempo": "12 a 15 min", "rend": "15 unidades"}, {"n": "061", "t": "Batata rústica", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "20 a 25 min", "rend": "4 porções"}, {"n": "062", "t": "Batata frita palito", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "20 a 25 min", "rend": "3 porções"}, {"n": "063", "t": "Batata-doce palito", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "18 a 22 min", "rend": "3 porções"}, {"n": "064", "t": "Mandioca frita", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "15 a 20 min", "rend": "4 porções"}, {"n": "065", "t": "Brócolis assado com alho", "c": "Acompanhamentos E Legumes", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "3 porções"}, {"n": "066", "t": "Couve-flor gratinada", "c": "Acompanhamentos E Legumes", "temp": "180 °C", "tempo": "20 min", "rend": "4 porções"}, {"n": "067", "t": "Abobrinha com parmesão", "c": "Acompanhamentos E Legumes", "temp": "190 °C", "tempo": "10 a 12 min", "rend": "3 porções"}, {"n": "068", "t": "Cenoura assada com mel", "c": "Acompanhamentos E Legumes", "temp": "190 °C", "tempo": "15 a 18 min", "rend": "3 porções"}, {"n": "069", "t": "Legumes assados", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "4 porções"}, {"n": "070", "t": "Anéis de cebola", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "3 porções"}, {"n": "071", "t": "Polenta frita", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "20 a 25 min", "rend": "4 porções"}, {"n": "072", "t": "Berinjela à parmegiana", "c": "Acompanhamentos E Legumes", "temp": "190 °C", "tempo": "17 min", "rend": "4 porções"}, {"n": "073", "t": "Batata bolinha com alecrim", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "18 a 22 min", "rend": "3 porções"}, {"n": "074", "t": "Batata recheada", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "40 a 45 min", "rend": "2 batatas"}, {"n": "075", "t": "Abóbora cabotiá assada", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "18 a 22 min", "rend": "4 porções"}, {"n": "076", "t": "Milho na espiga com manteiga", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "4 espigas"}, {"n": "077", "t": "Cogumelos assados", "c": "Acompanhamentos E Legumes", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "2 porções"}, {"n": "078", "t": "Farofa crocante", "c": "Acompanhamentos E Legumes", "temp": "180 °C", "tempo": "6 a 8 min", "rend": "4 porções"}, {"n": "079", "t": "Tomate assado com ervas", "c": "Acompanhamentos E Legumes", "temp": "180 °C", "tempo": "10 a 12 min", "rend": "4 porções"}, {"n": "080", "t": "Grão-de-bico crocante", "c": "Acompanhamentos E Legumes", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "2 porções"}, {"n": "081", "t": "Coxinha assada de massa de batata", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "15 unidades"}, {"n": "082", "t": "Pastel de forno", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "8 a 10 min", "rend": "10 unidades"}, {"n": "083", "t": "Pizza de pão sírio", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "6 a 8 min", "rend": "2 pizzas"}, {"n": "084", "t": "Esfiha aberta de carne", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "12 unidades"}, {"n": "085", "t": "Quibe assado em bolinhas", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "15 a 18 min", "rend": "20 unidades"}, {"n": "086", "t": "Dadinho de tapioca", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "30 unidades"}, {"n": "087", "t": "Enroladinho de salsicha", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "16 unidades"}, {"n": "088", "t": "Cachorro-quente rápido", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "4 a 5 min", "rend": "4 unidades"}, {"n": "089", "t": "Pão de alho caseiro", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "6 a 8 min", "rend": "4 porções"}, {"n": "090", "t": "Bruschetta", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "5 a 6 min", "rend": "8 unidades"}, {"n": "091", "t": "Palito de muçarela empanado", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "5 a 6 min", "rend": "16 unidades"}, {"n": "092", "t": "Calabresa acebolada", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "4 porções"}, {"n": "093", "t": "Chips de batata", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "2 porções"}, {"n": "094", "t": "Wrap tostado de frango", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "5 min", "rend": "2 wraps"}, {"n": "095", "t": "Nachos com queijo", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "4 a 5 min", "rend": "2 porções"}, {"n": "096", "t": "Croquete de carne", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "20 unidades"}, {"n": "097", "t": "Bolinho de arroz", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "12 a 15 min", "rend": "15 unidades"}, {"n": "098", "t": "Ovo de codorna com bacon", "c": "Lanches E Petiscos", "temp": "200 °C", "tempo": "8 a 10 min", "rend": "12 unidades"}, {"n": "099", "t": "Croutons temperados", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "6 a 8 min", "rend": "2 xícaras"}, {"n": "100", "t": "Folhado de presunto e queijo", "c": "Lanches E Petiscos", "temp": "180 °C", "tempo": "12 a 15 min", "rend": "8 unidades"}, {"n": "101", "t": "Bolo de cenoura com cobertura", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}, {"n": "102", "t": "Bolo de chocolate de liquidificador", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}, {"n": "103", "t": "Bolo de caneca", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "12 a 15 min", "rend": "1 caneca"}, {"n": "104", "t": "Brownie", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "20 a 25 min", "rend": "9 quadrados"}, {"n": "105", "t": "Cookie com gotas de chocolate", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "8 a 10 min", "rend": "12 unidades"}, {"n": "106", "t": "Churros assado", "c": "Doces E Bolos", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "15 unidades"}, {"n": "107", "t": "Maçã assada com canela", "c": "Doces E Bolos", "temp": "180 °C", "tempo": "15 a 18 min", "rend": "4 porções"}, {"n": "108", "t": "Pudim de leite", "c": "Doces E Bolos", "temp": "150 °C", "tempo": "40 a 45 min", "rend": "6 fatias"}, {"n": "109", "t": "Bolo de fubá", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}, {"n": "110", "t": "Bolo de banana", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}, {"n": "111", "t": "Petit gâteau", "c": "Doces E Bolos", "temp": "200 °C", "tempo": "7 a 8 min", "rend": "4 unidades"}, {"n": "112", "t": "Abacaxi assado com canela", "c": "Doces E Bolos", "temp": "200 °C", "tempo": "10 a 12 min", "rend": "4 porções"}, {"n": "113", "t": "Mini torta de maçã", "c": "Doces E Bolos", "temp": "180 °C", "tempo": "15 min", "rend": "6 unidades"}, {"n": "114", "t": "Biscoito amanteigado", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "10 a 12 min", "rend": "25 unidades"}, {"n": "115", "t": "Bolo de laranja", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}, {"n": "116", "t": "Banana com chocolate no papelote", "c": "Doces E Bolos", "temp": "180 °C", "tempo": "8 a 10 min", "rend": "2 porções"}, {"n": "117", "t": "Cocada de forno", "c": "Doces E Bolos", "temp": "170 °C", "tempo": "15 a 18 min", "rend": "8 pedaços"}, {"n": "118", "t": "Rosca doce caseira", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "18 a 20 min", "rend": "1 rosca"}, {"n": "119", "t": "Muffin de chocolate", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "15 a 18 min", "rend": "6 unidades"}, {"n": "120", "t": "Bolo de iogurte", "c": "Doces E Bolos", "temp": "160 °C", "tempo": "25 a 30 min", "rend": "8 fatias"}];
+(function () {
+  var R = window.RECEITAS, btn = document.getElementById("sortear"), c = document.getElementById("cartao"), ult = 15;
+  function mostra(r) {
+    document.getElementById("sCat").textContent = r.c;
+    document.getElementById("sNome").textContent = r.t;
+    document.getElementById("sNum").textContent = "Receita nº " + r.n + " do e-book";
+    document.getElementById("sTemp").textContent = r.temp;
+    document.getElementById("sTempo").textContent = r.tempo;
+    document.getElementById("sRend").textContent = r.rend;
+  }
+  if (btn) btn.addEventListener("click", function () {
+    var i; do { i = Math.floor(Math.random() * R.length); } while (i === ult); ult = i;
+    c.classList.remove("gira"); void c.offsetWidth; c.classList.add("gira");
+    setTimeout(function () { mostra(R[i]); }, 240);
+  });
+  var els = document.querySelectorAll(".rv");
+  if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("on"); }); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  els.forEach(function (e) { io.observe(e); });
 })();
 </script>
 </body>
