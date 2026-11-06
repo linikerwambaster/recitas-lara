@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>120 Receitas na Airfryer | por Lara</title>
-<meta name="description" content="120 receitas fáceis na airfryer, do café da manhã à sobremesa, com temperatura e tempo em cada página. E-book em PDF por R$ 9,90.">
+<meta name="description" content="120 receitas fáceis na airfryer, do café da manhã à sobremesa, com temperatura e tempo em cada página. E-book em PDF a partir de R$ 9,90.">
 <meta property="og:title" content="120 Receitas na Airfryer | por Lara">
-<meta property="og:description" content="Do café da manhã à sobremesa, com temperatura e tempo certinhos. E-book em PDF.">
+<meta property="og:description" content="Sua airfryer não nasceu só pra batata e frango. 120 receitas com temperatura e tempo certinhos, em PDF.">
 <meta property="og:image" content="assets/lara-ebook.webp">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍗</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,16 +15,15 @@
 
 <script>
 /* =====================================================
-   CONFIGURAÇÃO: preencha aqui antes de publicar
+   CONFIGURAÇÃO
    ===================================================== */
 window.LP_CONFIG = {
   pixelId: "900026399708068",                 // ID do Pixel da Meta (só números)
-  capiEndpoint: "/api/capi",   // Função da Vercel que envia a API de Conversões
+  capiEndpoint: "/api/capi",                   // Função da Vercel que envia a API de Conversões
   currency: "BRL",
   products: {
-    doces:    { name: "20 Doces na Airfryer",              price: 6.90, checkout: "https://pay.cakto.com.br/32p432j_1161626" },
-    almoco:   { name: "45 Receitas de Almoço e Jantar",    price: 8.90, checkout: "https://pay.cakto.com.br/37pdzfx_1161606" },
-    completo: { name: "120 Receitas na Airfryer",          price: 9.90, checkout: "https://pay.cakto.com.br/338crjs_1160514" }
+    basico: { name: "120 Receitas na Airfryer", price: 9.90,  checkout: "https://pay.cakto.com.br/338crjs_1160514" },
+    kit:    { name: "Kit Completo Airfryer",    price: 17.90, checkout: "https://pay.cakto.com.br/39kdi6r_1290620" }
   }
 };
 </script>
@@ -32,7 +31,7 @@ window.LP_CONFIG = {
 <style>
 :root{
   --tomate:#C2361F; --laranja:#E8672A; --mostarda:#F5B82E; --manteiga:#FFF3D1;
-  --cafe:#2B1B14; --cafe-2:#6B4F42; --branco:#FFFFFF; --linha:#F0DCC4;
+  --cafe:#2B1B14; --cafe-2:#6B4F42; --branco:#FFFFFF; --linha:#F0DCC4; --verde:#3F8A4F;
   --r-lg:28px; --r-md:16px; --r-sm:10px;
   --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
   --texto:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -47,6 +46,7 @@ p{margin:0}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--mostarda);outline-offset:3px;border-radius:6px}
 .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+.olho{display:inline-block;font-family:var(--display);font-weight:800;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--laranja)}
 
 /* Botão */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;
@@ -62,8 +62,9 @@ a{color:inherit}
 .hero{background:var(--laranja);color:var(--branco);overflow:hidden;position:relative}
 .hero::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:#F08A50;right:-180px;top:-200px;z-index:0}
 .hero .wrap{position:relative;z-index:1;display:grid;gap:28px;padding:36px 0 0}
-.hero h1{font-size:clamp(2.4rem,9vw,4.4rem);font-weight:800}
-.hero .sub{font-size:1.15rem;max-width:30ch;margin-top:16px;color:#FFF0E6}
+.hero .olho{color:#FFE2CF}
+.hero h1{font-size:clamp(2.4rem,9vw,4.4rem);font-weight:800;margin-top:10px}
+.hero .sub{font-size:1.15rem;max-width:32ch;margin-top:16px;color:#FFF0E6}
 .hero .acoes{margin-top:26px}
 .hero .nota{color:#FFE2CF}
 .hero__foto{align-self:end;justify-self:center;width:min(440px,100%);border-radius:var(--r-lg) var(--r-lg) 0 0;overflow:hidden;
@@ -73,20 +74,28 @@ a{color:inherit}
   .hero__texto{padding-bottom:72px}
 }
 
+/* História */
+.historia{padding:72px 0 56px;background:var(--branco)}
+.historia .wrap{display:grid;gap:18px;max-width:720px}
+.historia h2{font-size:clamp(1.9rem,6vw,2.8rem);margin-top:6px}
+.historia p{font-size:1.1rem;color:var(--cafe-2)}
+.historia p b{color:var(--cafe)}
+.historia .virada{margin-top:8px;padding:22px 24px;background:var(--manteiga);border-radius:var(--r-md);color:var(--cafe);font-size:1.1rem}
+
 /* Vídeo de receita */
-.video-sec{padding:48px 0 8px;background:var(--branco)}
+.video-sec{padding:24px 0 48px;background:var(--branco)}
 .video-sec .wrap{display:grid;gap:22px;justify-items:center;text-align:center}
 .video-sec h2{font-size:clamp(1.7rem,5.5vw,2.4rem);max-width:20ch}
 .video-sec .vcard{width:min(300px,78vw);aspect-ratio:9/16;border-radius:var(--r-lg);overflow:hidden;background:var(--cafe);
   box-shadow:0 18px 40px -18px rgba(43,27,20,.55);border:5px solid var(--manteiga)}
 .video-sec video{width:100%;height:100%;object-fit:cover;display:block}
-.video-sec .nota{margin:0;max-width:34ch}
+.video-sec .nota{margin:0;max-width:36ch}
 @media (min-width:860px){.video-sec .wrap{grid-template-columns:auto 1fr;gap:56px;text-align:left;justify-items:start;align-items:center}
   .video-sec .vcard{width:300px;order:-1}}
 
-/* Faixa de categorias */
-.dentro{padding:72px 0 40px}
-.dentro h2{font-size:clamp(2rem,6vw,3rem);max-width:18ch}
+/* Categorias */
+.dentro{padding:72px 0 40px;background:var(--manteiga)}
+.dentro h2{font-size:clamp(2rem,6vw,3rem);max-width:18ch;margin-top:6px}
 .dentro .lead{margin-top:14px;max-width:52ch;color:var(--cafe-2)}
 .cats{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:2px solid var(--cafe)}
 .cats li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:16px 4px;border-bottom:1px solid var(--linha)}
@@ -95,22 +104,46 @@ a{color:inherit}
 @media (max-width:560px){.cats{grid-template-columns:1fr}.cats li:nth-child(odd){padding-right:4px}}
 
 /* Páginas */
-.paginas{padding:24px 0 80px}
+.paginas{padding:24px 0 80px;background:var(--manteiga)}
 .paginas h3{font-size:1.5rem;margin-bottom:20px}
 .trilho{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,320px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
 .trilho figure{margin:0;scroll-snap-align:start;background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-md);overflow:hidden}
 .trilho figcaption{font-size:.92rem;padding:12px 14px;color:var(--cafe-2);border-top:1px solid var(--linha)}
 @media (min-width:860px){.trilho{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible}}
 
+/* Para quem é */
+.praquem{padding:80px 0}
+.praquem h2{font-size:clamp(1.9rem,5.5vw,2.6rem);max-width:20ch;margin-top:6px}
+.praquem ul{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+@media (min-width:860px){.praquem ul{grid-template-columns:1fr 1fr}}
+.praquem li{display:flex;gap:12px;align-items:flex-start;background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-md);padding:16px 18px}
+.praquem li::before{content:"✓";flex:none;width:28px;height:28px;border-radius:50%;background:var(--laranja);color:var(--branco);
+  display:grid;place-items:center;font-weight:700;font-size:.95rem;margin-top:1px}
+
+/* Bônus do kit */
+.bonus{padding:80px 0;background:var(--cafe);color:var(--branco)}
+.bonus .olho{color:var(--mostarda)}
+.bonus h2{font-size:clamp(2rem,6vw,3rem);max-width:20ch;margin-top:6px}
+.bonus .lead{margin-top:14px;max-width:54ch;color:#E7D6CC}
+.bgrade{display:grid;gap:18px;margin-top:36px}
+@media (min-width:860px){.bgrade{grid-template-columns:repeat(3,1fr)}}
+.bcard{background:#3A271E;border-radius:var(--r-md);padding:20px;display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:start}
+.bcard img{width:96px;border-radius:6px;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.bcard small{font-family:var(--display);font-weight:800;color:var(--mostarda);font-size:.8rem;letter-spacing:.06em}
+.bcard h3{font-size:1.25rem;margin-top:4px}
+.bcard p{font-size:.95rem;color:#E7D6CC;margin-top:6px}
+
 /* Ofertas */
 .ofertas{background:var(--manteiga);padding:80px 0}
 .ofertas h2{font-size:clamp(2rem,6vw,3rem);max-width:20ch}
-.ofertas .lead{margin-top:14px;max-width:50ch;color:var(--cafe-2)}
+.ofertas .lead{margin-top:14px;max-width:54ch;color:var(--cafe-2)}
 .planos{display:grid;gap:18px;margin-top:40px;align-items:end}
-@media (min-width:860px){.planos{grid-template-columns:1fr 1fr 1.25fr}}
+@media (min-width:860px){.planos{grid-template-columns:1fr 1.2fr}}
+@media (max-width:859px){.plano--top{order:-1}}
 .plano{background:var(--branco);border-radius:var(--r-md);padding:22px;display:grid;gap:14px;border:1px solid var(--linha)}
 .plano__topo{display:flex;gap:14px;align-items:center}
 .plano__topo img{width:64px;border-radius:6px;box-shadow:0 2px 6px rgba(43,27,20,.18)}
+.plano--top .plano__topo img{width:96px}
 .plano h3{font-size:1.25rem}
 .plano .conteudo{font-size:.95rem;color:var(--cafe-2)}
 .preco{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -118,17 +151,22 @@ a{color:inherit}
 .por-receita{font-size:.9rem;color:var(--cafe-2)}
 .plano .btn{max-width:none;font-size:1rem;padding:15px 20px;background:var(--cafe);box-shadow:0 4px 0 #000}
 .plano .btn:active{box-shadow:0 1px 0 #000}
-
 .plano--top{background:var(--tomate);color:var(--branco);border:0;padding:28px;position:relative;box-shadow:0 18px 40px -18px rgba(194,54,31,.7)}
 .plano--top .conteudo,.plano--top .por-receita{color:#FFE2D9}
 .plano--top .preco strong{font-size:3.2rem}
 .plano--top .btn{background:var(--mostarda);color:var(--cafe);box-shadow:0 5px 0 #B9861A;font-size:1.15rem;padding:18px}
 .plano--top .btn:active{box-shadow:0 1px 0 #B9861A}
+.plano .de{font-size:.95rem;color:#FFE2D9}
 .selo{position:absolute;top:-16px;right:18px;background:var(--mostarda);color:var(--cafe);font-family:var(--display);font-weight:800;
   font-size:.95rem;padding:8px 14px;border-radius:999px;transform:rotate(3deg)}
 .inclui{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:.95rem}
 .inclui li::before{content:"✓";font-weight:700;color:var(--mostarda);margin-right:8px}
-.extra{margin-top:28px;font-size:.95rem;color:var(--cafe-2);max-width:60ch}
+.garantia{margin-top:28px;display:flex;gap:16px;align-items:center;background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-md);padding:18px 20px;max-width:720px}
+.garantia .icone{flex:none;width:56px;height:56px;border-radius:50%;background:var(--verde);color:var(--branco);display:grid;place-items:center;
+  font-family:var(--display);font-weight:800;font-size:1.3rem;line-height:1;text-align:center}
+.garantia p{font-size:.95rem;color:var(--cafe-2)}
+.garantia b{color:var(--cafe)}
+.extra{margin-top:18px;font-size:.95rem;color:var(--cafe-2);max-width:60ch}
 
 /* Lara */
 .lara{padding:88px 0}
@@ -151,13 +189,14 @@ details p{padding:0 0 18px;color:var(--cafe-2);max-width:62ch}
 
 /* Final */
 .final{background:var(--laranja);color:var(--branco);padding:80px 0 120px;text-align:center}
-.final h2{font-size:clamp(2.2rem,7vw,3.6rem);max-width:16ch;margin-inline:auto}
+.final h2{font-size:clamp(2.2rem,7vw,3.6rem);max-width:17ch;margin-inline:auto}
 .final p{margin:16px auto 0;max-width:42ch;color:#FFF0E6}
 .final .btn{margin-top:30px}
 .final .nota{color:#FFE2CF}
 
 footer{background:var(--cafe);color:#D9C6BB;font-size:.85rem;padding:28px 0 100px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+footer .aviso{flex-basis:100%;font-size:.8rem;color:#B9A59A}
 
 /* Barra fixa no celular */
 .barra{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--branco);border-top:1px solid var(--linha);
@@ -165,7 +204,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   transform:translateY(110%);transition:transform .25s ease}
 .barra.on{transform:none}
 .barra span{font-size:.9rem;line-height:1.25}
-.barra b{font-family:var(--display);font-size:1.25rem}
+.barra b{font-family:var(--display);font-size:1.15rem}
 .barra .btn{padding:13px 18px;font-size:1rem;width:auto;flex:1}
 @media (min-width:860px){.barra{display:none}}
 </style>
@@ -176,11 +215,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 <header class="hero">
   <div class="wrap">
     <div class="hero__texto">
-      <h1>Chega de fazer sempre a mesma coisa na airfryer.</h1>
-      <p class="sub">São 120 receitas fáceis, do café da manhã à sobremesa, com temperatura e tempo certinhos em cada página.</p>
+      <span class="olho">Receitas da Lara</span>
+      <h1>Sua airfryer não nasceu só pra batata e frango.</h1>
+      <p class="sub">São 120 receitas fáceis, do café da manhã à sobremesa, com a temperatura e o tempo certinhos em cada página.</p>
       <div class="acoes">
-        <a href="#ofertas" class="btn btn--claro" data-checkout="completo">Quero as 120 receitas</a>
-        <p class="nota">Por R$ 9,90. E-book em PDF que chega no seu e-mail logo após a compra.</p>
+        <a href="#ofertas" class="btn btn--claro">Quero variar o cardápio</a>
+        <p class="nota">A partir de R$ 9,90. E-book em PDF que chega no seu e-mail e no seu WhatsApp logo após a compra.</p>
       </div>
     </div>
     <img class="hero__foto" src="assets/lara-ebook.webp" width="900" height="1125" alt="Lara segurando o e-book 120 Receitas na Airfryer, com frango empanado, batata rústica e bolo de cenoura na bancada" fetchpriority="high">
@@ -188,20 +228,32 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 </header>
 
 <main>
+  <section class="historia" aria-labelledby="t-historia">
+    <div class="wrap">
+      <span class="olho">Você conhece essa cena</span>
+      <h2 id="t-historia">Sete da noite. Geladeira aberta. E a airfryer ali, esperando.</h2>
+      <p>Você olha para ela em cima da pia e pensa: <b>batata de novo?</b></p>
+      <p>Ela custou caro, ocupa espaço na bancada e faz muito mais do que isso. O problema nunca foi a airfryer. É que ninguém tem tempo de assistir a um vídeo de 15 minutos para descobrir o que fazer no jantar de hoje.</p>
+      <p class="virada">Por isso a gente juntou as receitas que mais funcionam na airfryer num lugar só. Cada uma cabe numa página: você bate o olho nos ingredientes, vê a temperatura e o tempo e coloca na cesta.</p>
+      <p>Pão de queijo no café. Frango empanado no almoço. Rocambole no jantar. Bolo de cenoura no fim de semana. <b>Sem ligar o forno e sem sujar um monte de louça.</b></p>
+    </div>
+  </section>
+
   <section class="video-sec" aria-labelledby="t-video">
     <div class="wrap">
       <div>
-        <h2 id="t-video">Veja como é fazer uma receita na airfryer</h2>
-        <p class="nota">Exemplo de receita feita na airfryer. No e-book, cada receita traz ingredientes, modo de preparo, temperatura e tempo.</p>
+        <h2 id="t-video">Do jeito que você viu no vídeo</h2>
+        <p class="nota">Esse rocambole está no bônus Receitas dos Vídeos, que vem no Kit Completo. Cada receita traz ingredientes, modo de preparo, temperatura e tempo.</p>
       </div>
       <div class="vcard">
-        <video id="vLoop" muted playsinline loop preload="none" width="540" height="960" poster="assets/receita-loop-poster.webp" data-src="assets/receita-loop.mp4" aria-label="Vídeo de uma receita sendo preparada na airfryer, do preparo ao prato pronto"></video>
+        <video id="vLoop" muted playsinline loop preload="none" width="540" height="960" poster="assets/receita-loop-poster.webp" data-src="assets/receita-loop.mp4" aria-label="Vídeo de um rocambole de frango sendo preparado na airfryer, do preparo ao prato pronto"></video>
       </div>
     </div>
   </section>
 
   <section class="dentro" aria-labelledby="t-dentro">
     <div class="wrap">
+      <span class="olho">O que tem no e-book</span>
       <h2 id="t-dentro">Uma receita nova para cada refeição do seu dia</h2>
       <p class="lead">Cada receita ocupa uma página, com ingredientes, modo de preparo, rendimento, temperatura e tempo. No sumário, é só tocar no nome para ir direto até ela.</p>
       <ul class="cats">
@@ -228,57 +280,96 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     </div>
   </section>
 
+  <section class="praquem" aria-labelledby="t-praquem">
+    <div class="wrap">
+      <span class="olho">Para quem é</span>
+      <h2 id="t-praquem">É para você que tem uma airfryer e quer usar de verdade</h2>
+      <ul>
+        <li>Usa a airfryer sempre para as mesmas três coisas</li>
+        <li>Quer variar o cardápio sem passar horas na cozinha</li>
+        <li>Prefere ingrediente de mercado comum, nada difícil de achar</li>
+        <li>Quer a temperatura e o tempo certos, sem ficar no chute</li>
+        <li>Cozinha para a família e precisa de ideia nova toda semana</li>
+        <li>Quer menos louça na pia no fim do dia</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bonus" aria-labelledby="t-bonus">
+    <div class="wrap">
+      <span class="olho">Só no Kit Completo</span>
+      <h2 id="t-bonus">O e-book e mais 3 bônus para o mês inteiro</h2>
+      <p class="lead">O Kit Completo traz as 120 receitas e mais três materiais para você decidir o que fazer, comprar o que precisa e acertar o ponto.</p>
+      <div class="bgrade">
+        <article class="bcard">
+          <img src="assets/capa-videos.webp" loading="lazy" width="357" height="505" alt="Capa do bônus Receitas dos Vídeos">
+          <div><small>BÔNUS 1</small><h3>Receitas dos Vídeos</h3><p>Os 8 pratos que aparecem nos nossos vídeos, passo a passo: rocambole de frango, ovos com atum gratinados, pizza de Rap10, quiche e mais.</p></div>
+        </article>
+        <article class="bcard">
+          <img src="assets/capa-cardapio.webp" loading="lazy" width="357" height="505" alt="Capa do bônus Cardápio de 30 Dias">
+          <div><small>BÔNUS 2</small><h3>Cardápio de 30 Dias</h3><p>As refeições das 4 semanas, usando as receitas do e-book, com a lista de compras de cada semana separada por setor do mercado.</p></div>
+        </article>
+        <article class="bcard">
+          <img src="assets/capa-tabela.webp" loading="lazy" width="357" height="505" alt="Capa do bônus Tabela da Airfryer">
+          <div><small>BÔNUS 3</small><h3>Tabela da Airfryer</h3><p>Tempo e temperatura de 100 alimentos, de congelados a carnes e legumes, para imprimir e deixar do lado da airfryer.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="ofertas" id="ofertas" aria-labelledby="t-ofertas">
     <div class="wrap">
-      <h2 id="t-ofertas">Escolha o seu e comece hoje</h2>
-      <p class="lead">Faça as contas: no e-book completo, cada receita sai por menos de 10 centavos.</p>
+      <span class="olho">Escolha o seu</span>
+      <h2 id="t-ofertas">Comece hoje, com o que você tem em casa</h2>
+      <p class="lead">O Básico traz as 120 receitas. O Kit Completo traz as receitas dos vídeos, o cardápio do mês e a tabela para deixar do lado da airfryer.</p>
 
       <div class="planos">
         <article class="plano">
           <div class="plano__topo">
-            <img src="assets/capa-20.webp" loading="lazy" width="357" height="505" alt="Capa do e-book 20 Doces na Airfryer">
-            <div><h3>20 Doces na Airfryer</h3><p class="conteudo">Bolos, cookies e sobremesas</p></div>
-          </div>
-          <div class="preco"><strong>R$ 6,90</strong><span class="por-receita">R$ 0,35 por receita</span></div>
-          <a href="#" class="btn" data-checkout="doces">Quero os 20 doces</a>
-        </article>
-
-        <article class="plano">
-          <div class="plano__topo">
-            <img src="assets/capa-45.webp" loading="lazy" width="357" height="505" alt="Capa do e-book 45 Receitas de Almoço e Jantar">
-            <div><h3>45 Receitas de Almoço e Jantar</h3><p class="conteudo">Frango, carnes e peixes</p></div>
-          </div>
-          <div class="preco"><strong>R$ 8,90</strong><span class="por-receita">R$ 0,20 por receita</span></div>
-          <a href="#" class="btn" data-checkout="almoco">Quero as 45 receitas</a>
-        </article>
-
-        <article class="plano plano--top">
-          <span class="selo">Tudo por R$ 1 a mais</span>
-          <div class="plano__topo">
             <img src="assets/capa-120.webp" loading="lazy" width="357" height="505" alt="Capa do e-book 120 Receitas na Airfryer">
-            <div><h3>120 Receitas na Airfryer</h3><p class="conteudo">O e-book completo</p></div>
+            <div><h3>Básico</h3><p class="conteudo">O e-book 120 Receitas na Airfryer</p></div>
           </div>
           <ul class="inclui">
-            <li>Os 20 doces e as 45 receitas de almoço e jantar</li>
-            <li>15 receitas de café da manhã</li>
-            <li>20 acompanhamentos e 20 lanches e petiscos</li>
+            <li>120 receitas em 7 categorias</li>
             <li>Sumário clicável e 8 dicas de uso</li>
           </ul>
           <div class="preco"><strong>R$ 9,90</strong><span class="por-receita">R$ 0,08 por receita</span></div>
-          <a href="#" class="btn" data-checkout="completo">Quero as 120 receitas</a>
+          <a href="#" class="btn" data-checkout="basico">Quero o Básico</a>
+        </article>
+
+        <article class="plano plano--top">
+          <span class="selo">Recomendado</span>
+          <div class="plano__topo">
+            <img src="assets/capa-kit.webp" loading="lazy" width="600" height="500" alt="Os 4 PDFs do Kit Completo Airfryer">
+            <div><h3>Kit Completo</h3><p class="conteudo">O e-book + 3 bônus</p></div>
+          </div>
+          <ul class="inclui">
+            <li><b>120 Receitas na Airfryer</b>, o e-book completo</li>
+            <li><b>Receitas dos Vídeos</b>: os 8 pratos que aparecem nos nossos vídeos</li>
+            <li><b>Cardápio de 30 Dias</b> com lista de compras</li>
+            <li><b>Tabela da Airfryer</b> com 100 alimentos, para imprimir</li>
+          </ul>
+          <p class="de">Comprando o e-book, o cardápio e a tabela separados: <s>R$ 23,70</s></p>
+          <div class="preco"><strong>R$ 17,90</strong><span class="por-receita">tudo junto, pagamento único</span></div>
+          <a href="#" class="btn" data-checkout="kit">Quero o Kit Completo</a>
         </article>
       </div>
-      <p class="extra">No pagamento do e-book completo, você ainda pode adicionar o Cardápio de 30 Dias com lista de compras e a Tabela da Airfryer com 100 alimentos.</p>
+
+      <div class="garantia">
+        <div class="icone">7<br><small style="font-size:.6rem">DIAS</small></div>
+        <p><b>Garantia de 7 dias.</b> Se não gostar, é só pedir o reembolso em até 7 dias após a compra e você recebe o valor de volta.</p>
+      </div>
+      <p class="extra">Os dois chegam no seu e-mail e no seu WhatsApp logo após a compra, em PDF. No Pix, a aprovação costuma ser na hora.</p>
     </div>
   </section>
 
   <section class="lara" aria-labelledby="t-lara">
     <div class="wrap">
-      <img src="assets/lara-retrato.webp" loading="lazy" width="700" height="700" alt="Retrato da Lara sorrindo na varanda ao pôr do sol">
+      <img src="assets/lara-retrato.webp" loading="lazy" width="700" height="700" alt="Retrato ilustrativo da Lara, personagem do Receitas da Lara">
       <div>
         <h2 id="t-lara">Oi, eu sou a Lara</h2>
-        <p>A airfryer virou a peça mais usada da minha cozinha. Mas por muito tempo eu fazia sempre as mesmas três coisas nela: batata, frango e pão de queijo.</p>
-        <p>Por isso organizei este e-book. São receitas simples, com ingredientes de mercado comum, para você variar o cardápio sem passar horas na cozinha e sem sujar um monte de louça.</p>
+        <p>A airfryer virou a peça mais usada da cozinha de muita gente. Mas quase todo mundo faz sempre as mesmas três coisas nela: batata, frango e pão de queijo.</p>
+        <p>Por isso o Receitas da Lara reuniu receitas simples, com ingredientes de mercado comum, para você variar o cardápio sem passar horas na cozinha e sem sujar um monte de louça.</p>
       </div>
     </div>
   </section>
@@ -286,20 +377,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   <section class="faq" aria-labelledby="t-faq">
     <div class="wrap">
       <h2 id="t-faq">Dúvidas comuns</h2>
-      <details><summary>Como eu recebo o e-book?</summary><p>Assim que o pagamento é aprovado, o link para baixar o PDF chega no seu e-mail. No Pix, a aprovação costuma ser na hora.</p></details>
+      <details><summary>Como eu recebo?</summary><p>Assim que o pagamento é aprovado, o link para baixar chega no seu e-mail e no seu WhatsApp. No Pix, a aprovação costuma ser na hora.</p></details>
+      <details><summary>Qual a diferença entre o Básico e o Kit Completo?</summary><p>O Básico é o e-book com as 120 receitas. O Kit Completo traz o mesmo e-book e mais três bônus: as Receitas dos Vídeos, o Cardápio de 30 Dias com lista de compras e a Tabela da Airfryer com 100 alimentos.</p></details>
+      <details><summary>As receitas que aparecem nos vídeos estão no e-book?</summary><p>Elas estão no bônus Receitas dos Vídeos, que vem no Kit Completo.</p></details>
       <details><summary>Funciona em qualquer airfryer?</summary><p>Sim. As receitas trazem temperatura e tempo de referência. Como cada modelo tem seu ritmo, na primeira vez confira o ponto alguns minutos antes do final.</p></details>
       <details><summary>Consigo ler no celular?</summary><p>Sim. O PDF abre no celular, no tablet e no computador, e o sumário é clicável. Se preferir, também dá para imprimir.</p></details>
-      <details><summary>É pagamento único?</summary><p>Sim. Você paga uma vez e o e-book é seu. Não existe mensalidade.</p></details>
+      <details><summary>É pagamento único?</summary><p>Sim. Você paga uma vez e é seu. Não existe mensalidade.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias para pedir o reembolso, conforme o Código de Defesa do Consumidor para compras feitas pela internet.</p></details>
     </div>
   </section>
 
   <section class="final" aria-labelledby="t-final">
     <div class="wrap">
-      <h2 id="t-final">Hoje já dá pra fazer uma receita nova.</h2>
-      <p>São 120 receitas, do café à sobremesa, por R$ 9,90.</p>
-      <a href="#ofertas" class="btn btn--claro" data-checkout="completo">Quero as 120 receitas</a>
-      <p class="nota">Pagamento seguro. Acesso imediato pelo e-mail.</p>
+      <h2 id="t-final">Hoje à noite já pode sair um prato novo da sua airfryer.</h2>
+      <p>São 120 receitas, do café à sobremesa, a partir de R$ 9,90.</p>
+      <a href="#ofertas" class="btn btn--claro">Escolher o meu</a>
+      <p class="nota">Pagamento seguro. Acesso imediato pelo e-mail e pelo WhatsApp.</p>
     </div>
   </section>
 </main>
@@ -309,12 +402,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     <span>© <span id="ano"></span> Receitas da Lara. Todos os direitos reservados.</span>
     <a href="privacidade.html">Política de privacidade</a>
     <span>Este site não faz parte do Facebook ou da Meta.</span>
+    <span class="aviso">A Lara é a personagem da marca Receitas da Lara. As imagens de pessoas são ilustrativas.</span>
   </div>
 </footer>
 
 <div class="barra" id="barra" aria-hidden="true">
-  <span>120 receitas<br><b>R$ 9,90</b></span>
-  <a href="#ofertas" class="btn" data-checkout="completo" tabindex="-1">Quero o meu</a>
+  <span>120 receitas<br><b>a partir de R$ 9,90</b></span>
+  <a href="#ofertas" class="btn" tabindex="-1">Quero o meu</a>
 </div>
 
 <script>
@@ -366,8 +460,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     new IntersectionObserver(function (en, ob) {
       if (en[0].isIntersecting && !viu) {
         viu = true; ob.disconnect();
-        var p = C.products.completo;
-        track("ViewContent", { content_name: p.name, content_ids: ["completo"], content_type: "product", value: p.price, currency: C.currency });
+        var p = C.products.kit;
+        track("ViewContent", { content_name: p.name, content_ids: ["kit"], content_type: "product", value: p.price, currency: C.currency });
       }
     }, { threshold: 0.3 }).observe(ofertas);
   }
@@ -386,7 +480,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     el.addEventListener("click", function (e) {
       var key = el.getAttribute("data-checkout"), p = C.products[key];
       if (!p || !p.checkout) {
-        // Sem link configurado: só rola até as ofertas
         if (el.getAttribute("href") === "#ofertas") return;
         e.preventDefault(); console.warn("Configure o link de checkout de: " + key); return;
       }
